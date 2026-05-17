@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spired"
+version = "0.1.0"
+description = "SPIRED-Fitness protein fitness and structure prediction CLI"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "biopython==1.82",
+  "click==8.1.7",
+  "einops==0.7.0",
+  "fair-esm==2.0.0",
+  "numpy==1.26.3",
+  "pandas==2.1.4",
+  "torch==2.6.0",
+]
+
+[project.scripts]
+spired = "spired.cli:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["spired*", "scripts*"]
+
