@@ -3,6 +3,14 @@
 
 ![SPIRED-Fitness](figures/SPIRED-Fitness.svg)
 
+## Quick start (pip / uvx)
+
+```bash
+uvx spired -i example_fitness/test.fasta -o example_fitness
+```
+
+The first run downloads the SPIRED model weights automatically. To reuse a custom cache location, set `SPIRED_MODEL_DIR`.
+
 ## Install software on Linux (Conda)
 
 1. Download `SPIRED-Fitness`
@@ -64,16 +72,13 @@ docker run -it --name=spired --memory=50g spired /bin/bash
 
 ## Usage
 
-- You should download the [model parameters](https://doi.org/10.5281/zenodo.12560925) and move it into the `model` folder. If you install from docker, then the model parameters have been pre-downloaded.
-
 ```bash
-# run SPIRED
+# main CLI
+spired -i example_fitness/test.fasta -o example_fitness
+
+# keep the original scripts if you prefer the legacy workflow
 bash run_spired.sh -i example_spired/test.fasta -o example_spired
-
-# run SPIRED-Fitness
 bash run_spired_fitness.sh -i example_fitness/test.fasta -o example_fitness
-
-# run SPIRED-Stab
 bash run_spired_stab.sh -i example_stab/test.fasta -o example_stab
 ```
 
